@@ -1,0 +1,258 @@
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff1e2; /* Warna latar belakang */
+    color: #181818; /* Warna teks default */
+}
+
+header {
+    position: relative;
+    background-image: url('/static/image/kupi.jpeg'); /* Sesuaikan path gambar */
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+    color: white;
+}
+
+header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Overlay warna hitam transparan */
+    z-index: 1;
+}
+
+header .content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 150px 20px 0;
+}
+
+header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+header p {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 20px 0;
+}
+
+header .meta {
+    font-size: 1rem;
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+header .meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.breadcrumb {
+    background: none;
+    color: rgb(245, 245, 10);
+    font-weight: 400;
+}
+
+.breadcrumb-item a {
+    color: white;
+    text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    font-weight: 900;
+    color: #051f20; /* Kuning cerah */
+}
+
+h2 {
+    font-weight: 700;
+    color: #051f20; /* Cokelat */
+}
+
+li {
+    font-weight: 300;
+    color: #051f20; /* Kuning cerah */
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    color: white; /* Kuning cerah */
+}
+
+p1 {
+    font-weight: 300;
+    color: black; /* Kuning cerah */
+}
+
+a {
+    color: #051f20; /* Kuning cerah */
+    text-decoration: none;
+}
+
+.navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Transparansi hitam */
+    z-index: 10;
+}
+
+.navbar .nav-link {
+    color: yellow !important; /* Kuning cerah */
+    margin: 0 10px;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+    color: yellow !important; /* Cokelat */
+    border-bottom: 2px solid yellow; /* Garis bawah kuning cerah */
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-top: 60px; /* Tambahkan jarak untuk menghindari tabrakan dengan navbar */
+    color: #ff9d00;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: white;
+}
+
+.accordion-button {
+    background: linear-gradient(135deg, #B76E2D, #623F2B);
+    color: #FFF1E2; 
+    border: 2px solid #b8743f; /* Warna cokelat muda */
+    border-radius: 1px solid #555151;;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.accordion-button:hover {
+    background: linear-gradient(135deg, #623F2B, #B76E2D);
+    color: #FFF1E2; 
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px); /* Sedikit mengangkat */
+}
+
+.accordion-button:not(.collapsed) {
+    background: linear-gradient(135deg, #9d5c34, #6a4415); /* Gradien saat aktif */
+    color: #f8ecd7; /* Warna teks krem cerah */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.accordion-button .icon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    color: #f8ecd7; /* Warna ikon sesuai teks */
+}
+
+.accordion-button .caret-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease-in-out;
+    color: #f8ecd7; /* Warna ikon panah */
+}
+
+.accordion-button:not(.collapsed) .caret-icon {
+    transform: rotate(90deg); /* Putar ikon saat tombol aktif */
+}
+
+
+.btn-custom {
+    background-color: #2d2323; /* Warna tombol cokelat */
+    color: #FFF1E2; /* Warna teks tombol */
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: #FFF1E2; /* Warna tombol saat hover */
+    color: #2d2323; /* Warna teks tombol saat hover */
+    transform: translateY(-3px); /* Efek hover tombol */
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Bayangan tombol */
+}
+
+.btn-custom-secondary {
+    background-color: #2d2323; /* Hijau tua */
+    color: #FFF1E2; /* Warna teks tombol */
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-custom-secondary:hover {
+    background-color: #FFF1E2; /* Warna tombol saat hover */
+    color: #2d2323; /* Warna teks tombol saat hover */
+    transform: translateY(-3px); /* Efek hover tombol */
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Bayangan tombol */
+}
+
+
+.custom-card {
+    background: linear-gradient(135deg, #623F2B, #B76E2D);
+    color: #f4e66c; /* Warna teks */
+    border: none;
+    border-radius: 15px; /* Membulatkan sudut kartu */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-card:hover {
+    background: linear-gradient(135deg, #9d5c34, #6a4415);
+    transform: scale(1.05); /* Efek memperbesar saat hover */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); /* Bayangan saat hover */
+}
+
+.card-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4); 
+    color: #FFF1E2;
+}
+.card-text {
+    font-size: 1.1rem;
+    margin: 20px 0;
+    color: #FFF1E2; /* Warna teks deskripsi */
+}
+
+
+footer {
+    background: #2d2323;
+    color: #f4e66c;
+    text-align: center;
+    padding: 20px 0;
+}
+
+
+pre {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 5px;
+        font-family: monospace;
+        white-space: pre-wrap; /* Membungkus teks panjang */
+}
+

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediksi Kopi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/styles.css" rel="stylesheet">
+</head>
+<body>
+        <!-- Navbar -->
+        <header>
+        <div class="overlay"></div>
+        <div class="content">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                <li class="breadcrumb-item">
+                    <a href="/" class="text-warning" aria-current="page">Halaman Beranda</a>
+                </li>                    
+                <li class="breadcrumb-item"><a href="/edit-dataset" class="text-light">Kelola Data Kopi</a></li>
+                <li class="breadcrumb-item"><a href="/predict" class="text-light">Hasil Peramalan SARIMA</a></li>
+                <li class="breadcrumb-item"><a href="/tentang" class="text-light">Tentang Aplikasi</a></li>   
+                </ol>
+            </nav>
+            <h1>Sistem Peramalan Jumlah Hasil Produksi Kopi Provinsi Aceh</h1>
+            <p>
+                Menggunakan Teknologi Machine Learning untuk Meningkatkan Akurasi.
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+        <h2 class="text-center">Selamat Datang!</h2>
+        <p1 class="text-justify" style="text-align: justify;">
+            Aplikasi ini dirancang untuk menganalisis kinerja metode Seasonal Autoregressive Integrated Moving Average (SARIMA) dalam memprediksi jumlah hasil produksi kopi di Provinsi Aceh. Untuk melakukan peramalan jumlah hasil produksi kopi di Provinsi Aceh menggunakan metode SARIMA (Seasonal AutoRegressive Integrated Moving Average), Anda akan mengikuti tahapan berikut. Dalam hal ini, data yang digunakan adalah data deret waktu (time series) jumlah produksi kopi, yang bisa saja memiliki pola musiman atau tren tertentu. Berikut adalah tahapan secara rinci untuk melakukan peramalan tersebut:
+        </p1>
+    
+        <h2 class="text-center mb-4">Panduan Membangun Metode SARIMA</h2>
+        <div class="accordion" id="sarimaAccordion">
+
+            <!-- Pemahaman dan Persiapan Data -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        <span class="icon"></span> Pemahaman dan Persiapan Data
+                        <span class="caret-icon">▼</span>
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#sarimaAccordion">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><strong>Pengumpulan Data:</strong> Kumpulkan data jumlah produksi kopi Provinsi Aceh dalam bentuk deret waktu (misalnya bulanan atau tahunan).</li>
+                            <li><strong>Visualisasi Data:</strong> Plot data untuk memahami pola musiman atau tren yang ada.</li>
+                            <li><strong>Pra-pemrosesan Data:</strong> Periksa nilai yang hilang, konsistensi, dan pastikan data teratur dalam interval waktu tertentu.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pemeriksaan Stasionaritas -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <span class="icon"></span> Pemeriksaan Stasionaritas
+                        <span class="caret-icon">▼</span>
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#sarimaAccordion">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><strong>Apa Itu Stasioneritas?</strong> Data stasioner adalah data yang memiliki rata-rata, varians, dan autokorelasi yang konstan sepanjang waktu.</li>
+                            <li><strong>Mengapa Stasionaritas Penting?</strong> Model ARIMA hanya dapat diterapkan pada data stasioner.</li>
+                            <li><strong>Uji Stasionaritas</strong> Gunakan uji Augmented Dickey-Fuller (ADF) atau Kwiatkowski-Phillips-Schmidt-Shin (KPSS). Jika data tidak stasioner, lakukan differencing untuk menghilangkan tren atau musiman (seasonal differencing).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Identifikasi Parameter SARIMA -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <span class="icon"></span> Identifikasi Parameter SARIMA
+                        <span class="caret-icon">▼</span>
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#sarimaAccordion">
+                    <div class="accordion-body">
+                        <p>Gunakan plot <strong>ACF</strong> dan <strong>PACF</strong> untuk menentukan parameter berikut:</p>
+                        <ul>
+                            <li><strong>p:</strong> Orde AutoRegressive (AR).</li>
+                            <li><strong>d:</strong> Orde differencing untuk stasionaritas.</li>
+                            <li><strong>q:</strong> Orde Moving Average (MA).</li>
+                            <li><strong>P, D, Q:</strong> Parameter musiman untuk AR, differencing, dan MA.</li>
+                            <li><strong>s:</strong> Panjang musiman (contoh: 12 untuk data bulanan).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Estimasi Parameter dan Pembangunan Model -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        <span class="icon"></span> Estimasi Parameter dan Pembangunan Model
+                        <span class="caret-icon">▼</span>
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#sarimaAccordion">
+                    <div class="accordion-body">
+                        <ul>
+                            <li>Gunakan paket statistik seperti statsmodels di Python untuk menyesuaikan parameter model SARIMA berdasarkan data.</li>
+                            <li>Pastikan model menangkap pola musiman dan tren dalam data.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pemeriksaan Diagnostik -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFour">
+                        <span class="icon"></span> Pemeriksaan Diagnostik Model
+                        <span class="caret-icon">▼</span>
+                    </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#sarimaAccordion">
+                    <div class="accordion-body">
+                        <ul>
+                            <li>Periksa <strong>residuals</strong> untuk memastikan mereka seperti noise acak.</li>
+                            <li>Gunakan uji <strong>Ljung-Box</strong> untuk memeriksa autokorelasi residuals.</li>
+                            <li>Lakukan uji <strong>Shapiro-Wilk</strong> untuk normalitas residuals.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Peramalan dan Evaluasi -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingSix">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseFive">
+                        <span class="icon"></span> Peramalan Dan Evaluasi
+                        <span class="caret-icon">▼</span>
+                    </button>
+                </h2>
+                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#sarimaAccordion">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><strong>Prediksi:</strong> Lakukan prediksi untuk periode mendatang dan visualisasikan bersama data aktual.</li>
+                            <li><strong>Evaluasi:</strong> Gunakan metrik seperti <em>MAE</em>, <em>RMSE</em>, atau <em>MAPE</em> untuk mengukur akurasi.</li>
+                            <li><strong>Perbaikan Model:</strong> Sesuaikan parameter jika hasil tidak memadai.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+        <h2 class="text-center mb-4">Parameter Metode SARIMA</h2>
+
+        <!-- Parameter Non-Musiman -->
+        <div class="accordion mb-4" id="sarimaAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        📌 Parameter Non-Musiman (p, d, q)
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#sarimaAccordion">
+                    <div class="accordion-body">
+                        <ul>
+                            <li>
+                                <strong>p (Autoregressive Order):</strong> 
+                                Jumlah lag data aktual sebelumnya yang digunakan untuk memprediksi nilai saat ini.
+                                Ditentukan dengan <em>Partial Autocorrelation Function (PACF)</em>.
+                            </li>
+                            <li>
+                                <strong>d (Order of Differencing):</strong> 
+                                Jumlah differencing yang diperlukan untuk membuat data stasioner, menghilangkan tren dalam data.
+                            </li>
+                            <li>
+                                <strong>q (Moving Average Order):</strong> 
+                                Jumlah lag dari error residual yang digunakan dalam model.
+                                Ditentukan menggunakan <em>Autocorrelation Function (ACF)</em>.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parameter Musiman -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        📌 Parameter Musiman (P, D, Q, s)
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#sarimaAccordion">
+                    <div class="accordion-body">
+                        <ul>
+                            <li>
+                                <strong>P (Seasonal Autoregressive Order):</strong> 
+                                Ketergantungan musiman pada nilai sebelumnya (contoh: data tahunan menggunakan nilai tahun sebelumnya).
+                            </li>
+                            <li>
+                                <strong>D (Seasonal Differencing Order):</strong> 
+                                Jumlah differencing musiman yang diperlukan untuk membuat data menjadi stasioner.
+                            </li>
+                            <li>
+                                <strong>Q (Seasonal Moving Average Order):</strong> 
+                                Jumlah lag dari residual musiman yang digunakan.
+                            </li>
+                            <li>
+                                <strong>s (Seasonal Period):</strong> 
+                                Panjang musim dalam data (contoh: 12 untuk data bulanan atau 4 untuk data triwulanan).
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <div class="row text-center mt-5">
+        <!-- Card 1 -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-lg custom-card">
+                <div class="card-body">
+                    <h5 class="card-title">Kelola Data</h5>
+                    <p class="card-text">Kelola data kopi Anda untuk memastikan data terbaru sebelum melakukan Peramalan.</p>
+                    <a href="/edit-dataset" class="btn btn-custom">Kelola Sekarang</a>
+                </div>
+            </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-lg custom-card">
+                <div class="card-body">
+                    <h5 class="card-title">Peramalan Produksi Kopi</h5>
+                    <p class="card-text">Lakukan peramalan menggunakan Metode SARIMA berdasarkan data kopi yang telah Anda kelola.</p>
+                    <a href="/predict" class="btn btn-custom-secondary">Mulai Peramalan</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Peramalan Produksi Kopi. Dikembangkan dengan <span style="color: red;">&#9829;</span> oleh Aprian Gigin Prasetia</p>
+        <div class="social-icons mt-2">
+            <a href="https://facebook.com/aprian.gigin.prasetia" target="_blank"><i class="bi bi-facebook"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="bi bi-twitter"></i></a>
+            <a href="https://instagram.com/apriangigin_prasetia" target="_blank"><i class="bi bi-instagram"></i></a>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
