@@ -31,3 +31,9 @@ Proyek ini bertujuan untuk menerapkan konsep-konsep yang dipelajari dalam **mach
 1. Clone repositori ini ke mesin lokal:
    ```bash
    git clone https://github.com/apriangigin/Flask-Coffee-Prediction.git
+2. Install dependensi
+   ```bash
+   pip install -r requirements.txt
+3. Jalankan aplikasi Flask
+   ```bash
+   python app.py
